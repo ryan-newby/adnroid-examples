@@ -1,0 +1,60 @@
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        findViewById(R.id.string_add).setOnClickListener(new android.view.View.OnClickListener() {
+            @Override public void onClick(android.view.View view) {
+                android.widget.EditText S1Widget = findViewById(R.id.editTextTextString1);
+                android.widget.EditText S2Widget = findViewById(R.id.editTextTextString2);
+                android.widget.EditText FullWidget = findViewById(R.id.editTextFullString);
+
+                String FullString = S1Widget.getText().toString() + S2Widget.getText().toString();
+                FullWidget.setText(FullString);
+            }});
+
+        findViewById(R.id.string_compare).setOnClickListener(new android.view.View.OnClickListener() {
+            @Override public void onClick(android.view.View view) {
+                android.widget.EditText S1Widget = findViewById(R.id.editTextTextString1);
+                android.widget.EditText S2Widget = findViewById(R.id.editTextTextString2);
+                android.widget.EditText FullWidget = findViewById(R.id.editTextFullString);
+
+                String TrueFalseString;
+                if (S1Widget.getText().toString().equals(S2Widget.getText().toString())) {
+                    TrueFalseString = "Matching";
+                    FullWidget.setText(TrueFalseString);
+                }
+                else {
+                    TrueFalseString = "Not matching";
+                    FullWidget.setText(TrueFalseString);
+                }
+
+            }});
+
+        findViewById(R.id.string_vowels).setOnClickListener(new android.view.View.OnClickListener() {
+            @Override public void onClick(android.view.View view) {
+                android.widget.EditText S1Widget = findViewById(R.id.editTextTextString1);
+                android.widget.EditText S2Widget = findViewById(R.id.editTextTextString2);
+                android.widget.EditText FullWidget = findViewById(R.id.editTextFullString);
+
+                String FullString = S1Widget.getText().toString() + S2Widget.getText().toString();
+                int count;
+                count = 0;
+
+                for (int i=0 ; i<FullString.length(); i++){
+                    char ch = FullString.charAt(i);
+                    if(ch == 'a'|| ch == 'e'|| ch == 'i' ||ch == 'o' ||ch == 'u'){
+                        count ++;
+                    }
+                }
+                String strCount = Integer.toString(count);
+                FullWidget.setText(strCount);
+
+
+            }});
+
+        }
+
+    }
